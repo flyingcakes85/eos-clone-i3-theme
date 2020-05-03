@@ -1,0 +1,338 @@
+[colors]
+background_col          = #70304377
+
+white                   = #ffffff   
+; for most of the text
+
+halfwhite               = #50ffffff   
+; for most of the text
+
+red                     = #EF5350    
+; for the firefox icon
+
+green                   = #4caf50
+; for the thunar icon
+
+blue                    = #80283593
+; for the arch icon
+
+lightblue               = #B3E5FC
+lightgreen              = #A5D6A7
+; i3 module
+
+[bar/mybar]
+ monitor = VGA-1
+
+override-redirect = false
+
+; Put the bar at the bottom of the screen
+bottom = true
+
+; Prefer fixed center position for the `modules-center` block
+fixed-center = true
+
+width = 100%
+height = 30
+
+offset-x = 0
+offset-y = 0
+
+; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
+background = ${colors.background_col}
+
+; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
+foreground = #700
+
+line-size = 0
+line-color = #fff
+
+; Number of spaces to add at the beginning/end of the bar
+; Individual side values can be defined using:
+;   padding-{left,right}
+padding-right = 3
+
+; Number of spaces to add before/after each module
+; Individual side values can be defined using:
+;   module-margin-{left,right}
+module-margin = 1
+
+;    ______            __      
+;   / ____/___  ____  / /______
+;  / /_  / __ \/ __ \/ __/ ___/
+; / __/ / /_/ / / / / /_(__  ) 
+;/_/    \____/_/ /_/\__/____/  
+                       
+font-0 = Manrope:regular:size=10;3
+font-1 = Anonymice Nerd Font:regular:size=20;5
+font-2 = Anonymice Nerd Font:regular:size=16;5
+font-3 = Anonymice Nerd Font:regular:size=15;4
+
+modules-left = eos sep terminal sps firefox sps thunar sps sep i3
+modules-center = 
+modules-right =  alsa sps settings sps power sps date
+
+; The separator will be inserted between the output of each module
+separator =  
+
+; This value is used to add extra spacing between elements
+; @deprecated: This parameter will be removed in an upcoming version
+spacing = 
+
+; Opacity value between 0.0 and 1.0 used on fade in/out
+dim-value = 1.0
+
+wm-name = i3
+
+tray-position = right
+
+; If true, the bar will not shift its
+; contents when the tray changes
+tray-detached = false
+; Tray icon max size
+tray-maxsize = 16
+
+tray-background = ${colors.background_col}
+;offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
+
+tray-offset-x = 0
+tray-offset-y = 0
+
+; Pad the sides of each tray icon
+tray-padding = 0
+
+; Scale factor for tray clients
+tray-scale = 1.0
+
+wm-restack = i3
+
+dpi-x = 
+dpi-y = 
+
+enable-ipc = false
+
+;    _ _____
+;   (_)__  /
+;  / / /_ < 
+; / /___/ / 
+;/_//____/  
+          
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+
+strip-wsnumbers = true
+
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+ws-icon-0 = 1;%{T4}
+ws-icon-1 = 2;%{T4}爵
+ws-icon-2 = 3;%{T4}
+ws-icon-3 = 4;%{T4}
+ws-icon-4 = 5;%{T4}
+ws-icon-5 = 6;%{T4}
+ws-icon-6 = 7;%{T4}
+ws-icon-7 = 8;%{T4}
+ws-icon-8 = 9;%{T4}
+ws-icon-9 = 0;%{T4}
+ws-icon-default = %{T4}
+fuzzy-match = true
+
+
+label-unfocused = %icon%
+label-unfocused-padding = 5
+label-unfocused-foreground = ${colors.lightblue}
+
+label-focused = %icon%
+label-focused-foreground = ${colors.lightgreen}
+label-focused-background = ${colors.background_col}
+label-focused-underline = #f92672
+label-focused-padding = 5
+
+;  _______              
+; /_  __(_)___ ___  ___ 
+;  / / / / __ `__ \/ _ \
+; / / / / / / / / /  __/
+;/_/ /_/_/ /_/ /_/\___/ 
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %A %d, %b/%Y
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+label = %time%
+label-font = 0
+label-foreground = #ffffff
+
+
+;An empty module used to add 1 unit spacings whenever needed
+[module/sps]
+type = custom/text
+content = " "
+content-padding = 0
+
+;    __                           __                  
+;   / /   ____ ___  ______  _____/ /_  ___  __________
+;  / /   / __ `/ / / / __ \/ ___/ __ \/ _ \/ ___/ ___/
+; / /___/ /_/ / /_/ / / / / /__/ / / /  __/ /  (__  ) 
+;/_____/\__,_/\__,_/_/ /_/\___/_/ /_/\___/_/  /____/ 
+
+[module/terminal]
+type = custom/text
+
+click-left = xfce4-terminal &
+
+content = "%{T2}%{T-}"
+content-foreground = ${colors.white}
+content-background = ${colors.background_col}
+content-padding = 1
+
+
+
+[module/firefox]
+type = custom/text
+
+click-left = firefox &
+
+content = "%{T2}%{T-}"
+content-foreground = ${colors.red}
+content-background = ${colors.background_col}
+content-padding = 1
+
+
+
+[module/thunar]
+type = custom/text
+
+click-left = thunar &
+
+content = "%{T2}%{T-}"
+content-foreground = ${colors.green}
+content-background = ${colors.background_col}
+content-padding = 1
+
+
+;    __________  _____    ____        __  __            
+;   / ____/ __ \/ ___/   / __ )__  __/ /_/ /_____  ____ 
+;  / __/ / / / /\__ \   / __  / / / / __/ __/ __ \/ __ \
+; / /___/ /_/ /___/ /  / /_/ / /_/ / /_/ /_/ /_/ / / / /
+;/_____/\____//____/  /_____/\__,_/\__/\__/\____/_/ /_/ 
+                                                      
+[module/eos]
+type = custom/text
+
+click-left = rofi -show drun -theme "conf_drun.rasi" &
+
+content = "%{T3} %{T-} Endeavour  OS"
+content-foreground = ${colors.white}
+content-background = ${colors.blue}
+content-padding = 3
+
+[module/sep]
+type = custom/text
+
+content = "%{T2}|%{T-}"
+content-foreground = ${colors.halfwhite}
+content-background = ${colors.background_col}
+content-padding = 1
+
+;    ____        __  __                  
+;   / __ )__  __/ /_/ /_____  ____  _____
+;  / __  / / / / __/ __/ __ \/ __ \/ ___/
+; / /_/ / /_/ / /_/ /_/ /_/ / / / (__  ) 
+;/_____/\__,_/\__/\__/\____/_/ /_/____/ 
+
+[module/settings]
+type = custom/text
+
+click-left = "~/.config/rofi/scripts/rofi_conf_menu.sh"
+
+content = "%{T4}漣%{T-}"
+content-foreground = ${colors.white}
+content-background = ${colors.background_col}
+content-padding = 1
+
+
+
+[module/power]
+type = custom/text
+
+click-left = "~/.config/rofi/scripts/rofi_power_menu.sh"
+
+content = "%{T4}拉%{T-}"
+content-foreground = ${colors.white}
+content-background = ${colors.background_col}
+content-padding = 1
+
+[module/alsa]
+type = internal/alsa
+
+; You can find the different card numbers in `/proc/asound/cards`
+;;master-soundcard = default
+;;speaker-soundcard = default
+;;headphone-soundcard = default
+
+; Default: Master
+;;master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Default: none
+;;speaker-mixer = Speaker
+; Default: none
+;;headphone-mixer = Headphone
+
+; Default: 5
+;;interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume>
+ramp-volume-foreground = ${colors.white}
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+label-volume = %percentage%%
+label-foreground = ${colors.white}
+; Available tokens:
+;   %percentage% (default
+label-muted = ﱝ
+label-muted-foreground = ${colors.white}
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
