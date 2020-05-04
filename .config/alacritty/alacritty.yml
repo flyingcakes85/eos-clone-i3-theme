@@ -1,3 +1,8 @@
+# I only define padding here, although in my config I also use the font property
+# 
+# Uncomment the font sections (i.e. remove the preceeding hash marks) if you want
+# to use a custom font.
+
 window:
   padding:
    x: 15

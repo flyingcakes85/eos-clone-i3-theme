@@ -1,3 +1,9 @@
+/* So my rofi config are a big mess. I am still yet to learn 
+   rofi theming properly. This config is modified from the default
+   rofi output. The theme is a modified version of a diferent config */
+   
+// But the files in ./scripts folder are more decent.
+
 configuration {
 	modi: "window,run,ssh,drun";
 	width: 60;
